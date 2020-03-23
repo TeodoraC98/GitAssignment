@@ -1,6 +1,8 @@
 package ro.ase.acs.cts.tema;
 
-public class DateStudent {
+import ro.ase.acs.cts.tema.interfata.SustinereLicenta;
+
+public class DateStudent implements SustinereLicenta{
 	private String numeStudent;
 	private String denumireFacultate;
 	private int anSustinereLicenta;
@@ -44,8 +46,26 @@ public class DateStudent {
 	@Override
 	public String toString() {
 		
-		return "Studentul "+this.numeStudent+" din cadrul facultatii "+this.denumireFacultate+" va sustine lucrarea de licenta in anul "+this.anSustinereLicenta;
+		return "Studentul "+this.numeStudent+" din cadrul facultatii "+
+		this.denumireFacultate+" va sustine lucrarea de licenta in anul "+
+				this.anSustinereLicenta;
 	}
+
+	@Override
+	public String vaSustineLucrareDeLicenta() {
+		String sustine;
+		if(isSustinereLicenta()) {
+			sustine="Studentul "+getNumeStudent()+
+					" poate sa sustina lucrarea de licenta in anul "+
+					getAnSustinereLicenta()+"!";
+		}else {
+			sustine=getNumeStudent()+
+					" nu poate sa sustine lucrarea de licenta in anul "+
+					getAnSustinereLicenta()+"!";
+		}
+		return sustine;
+	}
+
 	
 
 }
